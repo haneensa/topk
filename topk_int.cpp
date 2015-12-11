@@ -4,8 +4,9 @@
 #include <fstream>
 #include <sstream>      // std::stringstream
 #include <sys/mman.h>
+#include <string.h>
 
-#define SIZE 50000000 * 21
+#define SIZE 50000000*21
 
 using namespace std;
 
@@ -24,7 +25,7 @@ int main(int argc, const char * argv[]) {
     
     /****** processing **********/
     const char* FILENAM = "/Users/haneen/Downloads/kaust/CS245/project2/binary_data_int.dat";
-    // ifstream ss(FILENAM,ios::binary);
+   // ifstream ss(FILENAM,ios::binary);
     FILE* in = fopen(FILENAM, "rb");
     unsigned int *buf = (unsigned int*)mmap(
                                             0,
@@ -37,9 +38,9 @@ int main(int argc, const char * argv[]) {
     fclose(in);
     
     for (int j = 0; j < 50000000; j++) {
+        memcpy(keys, buf+21*j, 21 * sizeof(unsigned int));
         mySum = 0;
-        //  ss.read((char*)&keys, 21*sizeof(unsigned int));
-        memcpy(keys, buf+j*21 * sizeof(unsigned int), 21 * sizeof(unsigned int));
+       //  ss.read((char*)&keys, 21*sizeof(unsigned int));
         
         // get the specified columns (i, j)
         // sum them up
