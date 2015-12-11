@@ -13,8 +13,8 @@ struct comparator {
 };
 
 int main(int argc, const char * argv[]) {
-    priority_queue<pair<long long,long long>, vector<pair<long long,long long>>, comparator> mypq;
-    int k = 3;
+    priority_queue< pair<long long,long long>, vector<pair<long long,long long> >, comparator> mypq;
+    int k = 10;
     long long mySum;
     long long keys[21];
     string line;
