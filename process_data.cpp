@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {    
-    long long keys[21];
+    unsigned int keys[21];
     int i,j;
     char c;
     string line;
@@ -17,17 +17,16 @@ int main(int argc, const char * argv[]) {
     const char* FILENAM = "/Users/haneen/Downloads/kaust/CS245/project2/binary_data.dat";
     ofstream outfile(FILENAM,ios::binary);
     
-    // while (!infile.eof()) {
-    for (j = 0; j < 50000000; j++) {
+    while (!infile.eof()) {
         if (!getline(infile, line) ) break;
         istringstream ss(line);
         // read line from file
         for (i = 0; i < 21; i++) {
             ss >>  keys[i] >> c;
-            outfile.write((char*)&keys[i], sizeof(long long));
+            outfile.write((char*)&keys[i], sizeof(unsigned int));
         }
-    }
-    //   }
+    
+     }
     
     outfile.close();
     
