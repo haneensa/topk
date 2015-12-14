@@ -2,7 +2,7 @@ TARGET = topk # executable with this name
 
 CC = g++ # compiler
 LINKER = g++ -o
-CFLAGS = -g -O2 -Wall -I. # Compiling flags
+CFLAGS = -g -O3 -std=c++11 -Wall -I. # Compiling flags
 LFLAGS = -Wall
 
 SRCDIR = src
